@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/test
+    username: root
+    password: root
+
+  #개발할 때는 create
+  #운용할때는 validate
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    #pretty
+    properties:
+      hibernate:
+        format_sql: true
+
+hystrix:
+  metrics:
+    enabled: true
+

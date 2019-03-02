@@ -1,0 +1,5 @@
+zuul:
+ routes:
+  wagu-post: /api/post/**
+  wagu-user: /api/account/**
+ strip-prefix: true

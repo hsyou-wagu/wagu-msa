@@ -1,0 +1,72 @@
+# For a quick start check out our HTTP Requests collection (Tools|HTTP Client|Open HTTP Requests Collection).
+#
+# Following HTTP Request Live Templates are available:
+# * 'gtrp' and 'gtr' create a GET request with or without query parameters;
+# * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
+# * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
+
+###
+POST http://localhost:8083/
+Content-Type: application/json
+
+{
+"id":1,
+"contents": "hi myname is",
+  "created":"2019-02-07T13:00:01",
+"removed":false,
+"hashtag":"#java#python",
+"accountId":1
+}
+
+###
+POST http://localhost:8083/v2
+Content-Type: application/json
+
+{
+  "id":1,
+  "contents": "saranghae",
+  "removed":false,
+  "hashtags":"[\"javascript\",\"java\"]",
+  "accountId":1
+}
+
+###
+POST http://localhost:8083/
+Content-Type: application/json
+
+{
+  "id":1,
+  "contents": "wow ~~~! fantastic",
+  "removed":false,
+  "hashtag":"#c#java",
+  "accountId":1
+}
+###
+POST http://localhost:8083/
+Content-Type: application/json
+
+{
+  "id":1,
+  "contents": "allohah",
+  "removed":false,
+  "hashtag":"#ruby",
+  "accountId":1
+}
+
+###
+POST http://localhost:8083/
+Content-Type: application/json
+
+{
+  "id":1,
+  "contents": "tocamba",
+  "removed":false,
+  "hashtag":"#go#javascript",
+  "accountId":1
+}
+
+
+###
+GET http://localhost:8083/?key=javascript
+
+###

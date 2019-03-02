@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="wagu-_main" target="1.8" />
+      <module name="wagu-_test" target="1.8" />
+      <module name="wagu-comment_main" target="1.8" />
+      <module name="wagu-comment_test" target="1.8" />
+      <module name="wagu-config_main" target="1.8" />
+      <module name="wagu-config_test" target="1.8" />
+      <module name="wagu-eureka_main" target="1.8" />
+      <module name="wagu-eureka_test" target="1.8" />
+      <module name="wagu-gateway_main" target="1.8" />
+      <module name="wagu-gateway_test" target="1.8" />
+      <module name="wagu-post_main" target="1.8" />
+      <module name="wagu-post_test" target="1.8" />
+      <module name="wagu-search_main" target="1.8" />
+      <module name="wagu-search_test" target="1.8" />
+      <module name="wagu-user_main" target="1.8" />
+      <module name="wagu-user_test" target="1.8" />
+      <module name="wagu_main" target="1.8" />
+      <module name="wagu_test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

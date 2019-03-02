@@ -1,0 +1,34 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: wagu-post
+#  cloud:
+#    config:
+#      discovery:
+#        enabled: true
+#        service-id: wagu-config
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/test
+    username: root
+    password: root
+
+kafka:
+ topic:
+  post: post
+ bootstrap:
+  servers: localhost:9092
+ consumer:
+  group:
+   id: post-group
+
+zookeeper:
+  host: localhost:2181
+  groupId: wagu
+
+
+eureka:
+  client:
+    enabled: false

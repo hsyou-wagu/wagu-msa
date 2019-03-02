@@ -1,0 +1,25 @@
+
+#개발할 때는 create
+#운용할때는 validate
+#spring.jpa.hibernate.ddl-auto=create
+
+#spring.jpa.show-sql=true
+  #pretty
+#spring.jpa.properties.hibernate.format_sql=true
+
+
+  #google api
+oauth:
+  google:
+    client:
+      id: 897334054685-1d1mbqm5pva7m5tlc6bssfvtkfmom8bc.apps.googleusercontent.com
+      secret: VfdlOJq74QuWZYqp4jbTIOL4
+      scope: https://www.googleapis.com/auth/userinfo.email
+      redirect_url: http://localhost:8765/auth/googlecallback
+
+
+  #jwt secret
+jwt:
+  secret: secret
+
+#hystrix

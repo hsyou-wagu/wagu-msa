@@ -1,0 +1,79 @@
+version: "2.1"
+
+services:
+  eureka:
+    build:
+      context: wagu-eureka
+      dockerfile: Dockerfile
+    image: hsyou/wagu/eureka:latest
+    container_name: eureka
+    ports:
+      - 8761:8761
+#    healthcheck:
+#      test: ["CMD", "curl", "-f", "http://localhost:8761/actuator/health"]
+#      interval: 10s
+#      timeout: 60s
+#      retries: 15
+
+  gateway:
+    build:
+      context: wagu-gateway
+      dockerfile: Dockerfile
+    image: hsyou/wagu/gateway:latest
+    container_name: gateway
+    ports:
+      - 8766:8766
+#    healthcheck:
+#      test: ["CMD", "curl", "-f", "http://localhost:8766/api/healthcheck"]
+#      interval: 10s
+#      timeout: 60s
+#      retries: 15
+#    depends_on:
+#      eureka:
+#        condition: service_healthy
+  config:
+    build:
+      context: wagu-config
+      dockerfile: Dockerfile
+    image: hsyou/wagu/config:latest
+    container_name: config
+    ports:
+    - 8888:8888
+
+  user:
+    build:
+      context: wagu-user
+      dockerfile: Dockerfile
+    image: hsyou/wagu/user:latest
+    container_name: user
+    ports:
+    - 8082:8082
+
+  post:
+    build:
+      context: wagu-post
+      dockerfile: Dockerfile
+    image: hsyou/wagu/post:latest
+    container_name: post
+    ports:
+    - 8080:8080
+
+  comment:
+    build:
+      context: wagu-comment
+      dockerfile: Dockerfile
+    image: hsyou/wagu/comment:latest
+    container_name: comment
+    ports:
+    - 8084:8084
+
+  search:
+    build:
+      context: wagu-search
+      dockerfile: Dockerfile
+    image: hsyou/wagu/gateway:latest
+    container_name: gateway
+    ports:
+    - 8083:8083
+
+

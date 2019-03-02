@@ -1,0 +1,9 @@
+rootProject.name = 'wagu'
+
+include 'wagu-post'
+include 'wagu-comment'
+include 'wagu-user'
+include 'wagu-gateway'
+include 'wagu-search'
+include 'wagu-eureka'
+include 'wagu-config'

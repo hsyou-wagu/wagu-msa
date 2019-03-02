@@ -1,0 +1,20 @@
+server:
+  port: 8766
+spring:
+  application:
+    name: wagu-gateway
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: wagu-config
+  profiles:
+    active: dev
+
+zuul:
+  ribbon-isolation-strategy: thread
+
+management:
+  endpoint:
+    routes:
+      enabled: false

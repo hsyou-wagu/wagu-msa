@@ -1,0 +1,8 @@
+server:
+  port: ${port:8761}
+
+spring:
+  application:
+    name: wagu-discovery
+
+

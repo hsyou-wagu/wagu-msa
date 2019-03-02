@@ -1,0 +1,36 @@
+buildscript {
+
+    ext{
+        springBootVersion = '2.1.1.RELEASE'
+        set('springCloudVersion', 'Greenwich.RELEASE')
+    }
+
+    repositories {
+        mavenCentral()
+        maven { url 'https://repo.spring.io/milestone' }
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion")
+    }
+}
+
+subprojects {
+
+    group 'com.hsyou'
+    version '1'
+
+    repositories {
+        mavenCentral()
+        maven { url 'https://repo.spring.io/milestone' }
+    }
+
+    ext{
+        set('springCloudVersion', 'Greenwich.RELEASE')
+    }
+
+//    apply plugin: 'io.spring.dependency-management'
+//    apply plugin: 'org.springframework.boot'
+    apply plugin: 'java'
+
+}
