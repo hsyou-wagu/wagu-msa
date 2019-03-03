@@ -14,8 +14,9 @@
 docker run  --name kibana_test -e ELASTICSEARCH_URL=http://localhost:9200 -p 5601:5601 -d docker.elastic.co/kibana/kibana:6.6.0
 ```
 
-### Single-broker Kafka
+#### Single-broker Kafka
 ``` sh
+git clone https://github.com/wurstmeister/kafka-docker
 docker-compose -f docker-compose-single-broker.yml up
 ```
 
