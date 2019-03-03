@@ -9,9 +9,16 @@
 
 ## Quick Start
 
+#### MYSQL
+``` sh
+docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password --name mysql_test mysql
+
+schema : test
+```
+
 #### Single node ES
 ``` sh
-docker run  --name kibana_test -e ELASTICSEARCH_URL=http://localhost:9200 -p 5601:5601 -d docker.elastic.co/kibana/kibana:6.6.0
+docker run --name es_test -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:6.6.1
 ```
 
 #### Single-broker Kafka
