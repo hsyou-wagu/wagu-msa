@@ -4,48 +4,59 @@
 TODO:
 1. 빌드/테스트/배포 자동화
 
+Post 8081 <br>
+Comment 8084 <br>
+User 8082 <br>
+Gateway 8765 <br>
+Config 8888 <br>
+Search 8083 <br>
+Eureka 8761 <br>
 
-Post 8081
-Comment 8084
-User 8082
-Gateway 8765
-Config 8888
-Search 8083
-Eureka 8761
+localhost:8765(gateway)/auth/login <br>
+-> 로그인 <br>
+-> token 발급 <br>
+<br>
+Authorization <br>
+Bearer {token} <br>
+<br>
+### 사용자정보 가져오기<br>
+GET {gateway}/account<br>
 
-localhost:8765(gateway)/auth/login
--> 로그인
--> token 발급
+### 글등록<br>
 
-Authorization
-Bearer {token}
+POST {gateway}/api/post<br>
+Content-Type:application/json<br>
 
-### 사용자정보 가져오기
-GET {gateway}/account
+{<br>
+  "contents": "contents",<br>
+  "hashtag": "#go#javascript"<br>
+}<br>
+<br>
+### 글보기<br>
+GET {gateway}/api/post/{postId}<br>
+<br><br>
 
-### 글등록
-POST {gateway}/api/post
-Content-Type:application/json
+### 글 리스트<br>
+GET {gateway}/api/post/list<br><br>
 
-{
-  "contents": "contents",
-  "hashtag": "#go#javascript"
-}
+### 글 수정<br>
+PUT {gateway}/api/post/{postId}<br>
+Content-Type:application/json<br>
+<br>
+{<br>
+	"id":{postId},<br>
+	"contents":"new contents",<br>
+	"hashtag":"#java#javascript"<br>
+}<br>
+<br>
 
-### 글보기
-GET {gateway}/api/post/{postId}
-
-
-### 글 리스트
-GET {gateway}/api/post/list
-
-### 글 수정
-PUT {gateway}/api/post/{postId}
-Content-Type:application/json
-
-{
-	"id":{postId},
-	"contents":"new contents",
-	"hashtag":"#java#javascript"
-}
-
+### 코멘드 등록<br>
+POST {gateway}/api/comment<br>
+Content-Type:application/json<br>
+<br>
+{<br>
+"contents":"comment"<br>
+}<br>
+<br>
+### 글의 코멘트 리스트<br>
+GET {gateway}/api/comment/{postId}<br>
