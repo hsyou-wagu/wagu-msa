@@ -106,9 +106,9 @@ Content-Type:application/json
 ``` sh
 GET {gateway}/api/comment/{postId}
 ```
+
 ...
 
-<br>
 ### 키워드 검색<br>
 ``` sh
 GET {gateway}/api/search?key={keyword}
