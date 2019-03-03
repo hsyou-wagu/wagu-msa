@@ -12,6 +12,9 @@ Config 8888 <br>
 Search 8083 <br>
 Eureka 8761 <br>
 
+
+## 주요 API 내용<br>
+
 localhost:8765(gateway)/auth/login <br>
 -> 로그인 <br>
 -> token 발급 <br>
@@ -19,8 +22,6 @@ localhost:8765(gateway)/auth/login <br>
 Authorization <br>
 Bearer {token} <br>
 <br>
-
-## 주요 API 내용<br>
 
 ### 로그인<br>
 GET {gateway}/auth/login<br>
