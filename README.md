@@ -20,6 +20,9 @@ Authorization <br>
 Bearer {token} <br>
 <br>
 
+### 로그인<br>
+GET {gateway}/auth/login<br>
+
 주요 API 내용<br>
 ### 사용자정보 가져오기<br>
 GET {gateway}/account<br>
@@ -64,3 +67,6 @@ Content-Type:application/json<br>
 GET {gateway}/api/comment/{postId}<br>
 ...
 
+<br>
+### 키워드 검색<br>
+GET {gateway}/api/search?key={keyword}
