@@ -97,7 +97,7 @@ POST {gateway}/api/comment
 Content-Type:application/json
 
 {
-"contents":"comment"
+	"contents":"comment"
 }
 
 ```
@@ -112,3 +112,4 @@ GET {gateway}/api/comment/{postId}
 ``` sh
 GET {gateway}/api/search?key={keyword}
 ```
+
