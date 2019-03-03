@@ -34,7 +34,7 @@ public class CommentService {
         Optional<Comment> optComment = commentRepository.findById(id);
 
         if(optComment.isPresent()){
-            if(optComment.get().getId() == accountId){
+            if(optComment.get().getUserId() == accountId){
 
                 optComment.get().setRemoved(true);
 

@@ -11,11 +11,16 @@ dependencies {
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-zuul:2.1.0.RELEASE'
 
     //implementation('org.springframework.boot:spring-boot-starter-data-jpa')
-    compile 'com.github.spring-social:spring-social-google:latest.release'
+    // https://mvnrepository.com/artifact/org.springframework.social/spring-social-core
+    implementation 'org.springframework.social:spring-social-google:1.0.0.RELEASE'
     // https://mvnrepository.com/artifact/com.auth0/java-jwt
-    compile group: 'com.auth0', name: 'java-jwt', version: '3.4.0'
+    api 'com.auth0:java-jwt:3.4.0'
     implementation 'org.springframework.boot:spring-boot-starter-security'
 
     compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    // https://mvnrepository.com/artifact/com.h2database/h2
+    testCompile group: 'com.h2database', name: 'h2', version: '1.3.148'
 }

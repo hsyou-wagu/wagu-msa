@@ -1,5 +1,6 @@
 FROM java:openjdk-8-jdk
-VOLUME /tmp
-ADD ./build/libs/*.jar post.jar
 
-ENTRYPOINT ["java","-jar","/post.jar"]
+WORKDIR /server/program/bootapp
+ADD ./build/libs/post.jar post.jar
+
+CMD ["/bin/bash", "-c", "exec java $JAVA_OPTS -jar post.jar"]

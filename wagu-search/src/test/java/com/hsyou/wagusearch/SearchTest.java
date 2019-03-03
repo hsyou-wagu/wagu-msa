@@ -33,6 +33,7 @@ public class SearchTest {
                 .accountId(1L)
                 .contents("testing, test, tester")
                 .created(LocalDateTime.now())
+                .updated(LocalDateTime.now())
                 .removed(false)
                 .hashtag(hashtag)
                 .id(1L)
@@ -58,6 +59,7 @@ public class SearchTest {
                 .accountId(1L)
                 .contents("testing test!")
                 .created(LocalDateTime.now())
+                .updated(LocalDateTime.now())
                 .hashtag(hashtags)
                 .build();
 
@@ -72,16 +74,32 @@ public class SearchTest {
         /*
             id기반으로 모든것을 덮어씌움!
          */
+        String hashtags = "#java#javascript#python";
 
         PostDTO postDTO = PostDTO.builder()
                 .id(1L)
                 .accountId(1L)
-                .removed(true)
+                .contents("testing test!")
+                .created(LocalDateTime.now())
+                .updated(LocalDateTime.now())
+                .hashtag(hashtags)
                 .build();
+
         SearchEntity save = searchService.save(postDTO);
 
-        assertThat(save.getId()).isEqualTo(1L);
-        assertThat(save.isRemoved()).isEqualTo(true);
+        PostDTO postDTO2 = PostDTO.builder()
+                .id(1L)
+                .accountId(1L)
+                .contents("testing test!")
+                .created(LocalDateTime.now())
+                .updated(LocalDateTime.now())
+                .hashtag(hashtags)
+                .removed(true)
+                .build();
+        SearchEntity save2 = searchService.save(postDTO2);
+
+        assertThat(save2.getId()).isEqualTo(1L);
+        assertThat(save2.isRemoved()).isEqualTo(true);
 
     }
 

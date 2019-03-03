@@ -5,20 +5,14 @@ import com.hsyou.wagugateway.model.AccountDTO;
 import com.hsyou.wagugateway.model.ExternalAuthProvider;
 import com.netflix.discovery.EurekaClient;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
-import com.netflix.ribbon.proxy.annotation.Hystrix;
-import org.apache.commons.lang3.concurrent.CircuitBreakingException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.netflix.hystrix.HystrixCommands;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
-import org.springframework.social.InternalServerErrorException;
-import org.springframework.stereotype.Service;
-
 import org.springframework.social.google.api.plus.Person;
-import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
 @Service
 public class AuthService {
 

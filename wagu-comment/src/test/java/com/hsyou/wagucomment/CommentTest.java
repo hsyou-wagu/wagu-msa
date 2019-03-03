@@ -41,7 +41,7 @@ public class CommentTest {
                 .postId(1L)
                 .build();
 
-        CommentDTO saveComment = commentService.saveComment(comment);
+        CommentDTO saveComment = commentService.saveComment(Comment.createComment(comment,1L));
 
         assertThat(saveComment.getContents()).isEqualTo("abc");
         assertThat(saveComment.getPostId()).isEqualTo(1L);
@@ -57,7 +57,8 @@ public class CommentTest {
                 .postId(1L)
                 .build();
 
-        commentService.saveComment(comment);
+        commentService.saveComment(Comment.createComment(comment,1L));
+
 
         List<CommentDTO> list = commentService.listAllComment(1L);
         assertThat(list.size()).isEqualTo(1);
@@ -72,17 +73,19 @@ public class CommentTest {
                 .postId(1L)
                 .build();
 
+        commentService.saveComment(Comment.createComment(comment,1L));
+
+
         CommentDTO comment2 = CommentDTO.builder()
                 .contents("qwe")
                 .userId(1L)
                 .postId(1L)
                 .build();
 
-        commentService.saveComment(comment);
-        CommentDTO target = commentService.saveComment(comment2);
+        CommentDTO target = commentService.saveComment(Comment.createComment(comment2,1L));
 
         //when
-        commentService.removeComment(target.getId());
+        commentService.removeComment(target.getId(),1L);
 
 
         List<CommentDTO> list = commentService.listAllComment(1L);

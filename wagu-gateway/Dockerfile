@@ -1,5 +1,8 @@
-FROM java:openjdk-8-jdk
-VOLUME /tmp
-ADD ./build/libs/*.jar gateway.jar
 
-ENTRYPOINT ["java","-jar","/gateway.jar"]
+FROM java:openjdk-8-jdk
+
+WORKDIR /server/program/bootapp
+ADD ./build/libs/*.jar gateway.jar
+EXPOSE 8761
+
+CMD ["/bin/bash", "-c", "exec java $JAVA_OPTS -jar gateway.jar"]
