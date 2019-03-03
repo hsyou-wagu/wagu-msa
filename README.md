@@ -1,7 +1,36 @@
 # wagu-msa
 멀티 모듈화 프로젝트, 아래 모든 모듈을 합침. 
 
-TODO:
+
+## Requirements
+- JDK >= 8
+- [Gradle](https://gradle.org/install/)
+- Docker
+
+## Quick Start
+
+#### Single node ES
+``` sh
+docker run  --name kibana_test -e ELASTICSEARCH_URL=http://localhost:9200 -p 5601:5601 -d docker.elastic.co/kibana/kibana:6.6.0
+```
+
+#### Single-broker Kafka
+``` sh
+git clone https://github.com/wurstmeister/kafka-docker
+docker-compose -f docker-compose-single-broker.yml up
+```
+
+#### Build
+``` sh
+gradle clean build
+```
+#### Run
+``` sh
+docker-compose up
+```
+
+
+## TODO:
 1. 빌드/테스트/배포 자동화
 
 Post 8081 <br>
@@ -12,6 +41,9 @@ Config 8888 <br>
 Search 8083 <br>
 Eureka 8761 <br>
 
+
+## 주요 API 내용<br>
+
 localhost:8765(gateway)/auth/login <br>
 -> 로그인 <br>
 -> token 발급 <br>
@@ -21,52 +53,64 @@ Bearer {token} <br>
 <br>
 
 ### 로그인<br>
-GET {gateway}/auth/login<br>
+``` sh
+GET {gateway}/auth/login
+```
 
-주요 API 내용<br>
 ### 사용자정보 가져오기<br>
-GET {gateway}/account<br>
+``` sh
+GET {gateway}/account
+```
 
 ### 글등록<br>
+``` sh
+POST {gateway}/api/post
+Content-Type:application/json
 
-POST {gateway}/api/post<br>
-Content-Type:application/json<br>
+{
+  "contents": "contents",
+  "hashtag": "#go#javascript"
+}
 
-{<br>
-  "contents": "contents",<br>
-  "hashtag": "#go#javascript"<br>
-}<br>
-<br>
+```
 ### 글보기<br>
-GET {gateway}/api/post/{postId}<br>
-<br><br>
-
+``` sh
+GET {gateway}/api/post/{postId}
+```
 ### 글 리스트<br>
-GET {gateway}/api/post/list<br><br>
-
+``` sh
+GET {gateway}/api/post/list
+```
 ### 글 수정<br>
-PUT {gateway}/api/post/{postId}<br>
-Content-Type:application/json<br>
-<br>
-{<br>
-	"id":{postId},<br>
-	"contents":"new contents",<br>
-	"hashtag":"#java#javascript"<br>
-}<br>
-<br>
+``` sh
+PUT {gateway}/api/post/{postId}
+Content-Type:application/json
 
+{
+	"id":{postId},
+	"contents":"new contents",
+	"hashtag":"#java#javascript"
+}
+```
 ### 코멘드 등록<br>
-POST {gateway}/api/comment<br>
-Content-Type:application/json<br>
-<br>
-{<br>
-"contents":"comment"<br>
-}<br>
-<br>
+``` sh
+POST {gateway}/api/comment
+Content-Type:application/json
+
+{
+	"contents":"comment"
+}
+
+```
 ### 글의 코멘트 리스트<br>
-GET {gateway}/api/comment/{postId}<br>
+``` sh
+GET {gateway}/api/comment/{postId}
+```
 ...
 
 <br>
 ### 키워드 검색<br>
+``` sh
 GET {gateway}/api/search?key={keyword}
+```
+
