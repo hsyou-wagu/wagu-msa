@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Gradle: org.springframework.boot:spring-boot-starter-data-elasticsearch:2.1.1.RELEASE">
-    <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-data-elasticsearch/2.1.1.RELEASE/6c4619946d0a3e0fefd4d631420b735a189ec78/spring-boot-starter-data-elasticsearch-2.1.1.RELEASE.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
