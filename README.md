@@ -53,59 +53,57 @@ Bearer {token} <br>
 
 ### 로그인<br>
 ``` sh
-GET {gateway}/auth/login<br>
+GET {gateway}/auth/login
 ```
 
 ### 사용자정보 가져오기<br>
 ``` sh
-GET {gateway}/account<br>
+GET {gateway}/account
 ```
 
 ### 글등록<br>
 ``` sh
-POST {gateway}/api/post<br>
-Content-Type:application/json<br>
+POST {gateway}/api/post
+Content-Type:application/json
 
-{<br>
-  "contents": "contents",<br>
-  "hashtag": "#go#javascript"<br>
-}<br>
-<br>
+{
+  "contents": "contents",
+  "hashtag": "#go#javascript"
+}
+
 ```
 ### 글보기<br>
 ``` sh
-GET {gateway}/api/post/{postId}<br>
-<br><br>
+GET {gateway}/api/post/{postId}
 ```
 ### 글 리스트<br>
 ``` sh
-GET {gateway}/api/post/list<br><br>
+GET {gateway}/api/post/list
 ```
 ### 글 수정<br>
 ``` sh
-PUT {gateway}/api/post/{postId}<br>
-Content-Type:application/json<br>
-<br>
-{<br>
-	"id":{postId},<br>
-	"contents":"new contents",<br>
-	"hashtag":"#java#javascript"<br>
-}<br>
-<br>
+PUT {gateway}/api/post/{postId}
+Content-Type:application/json
+
+{
+	"id":{postId},
+	"contents":"new contents",
+	"hashtag":"#java#javascript"
+}
 ```
 ### 코멘드 등록<br>
 ``` sh
-POST {gateway}/api/comment<br>
-Content-Type:application/json<br>
-<br>
-{<br>
-"contents":"comment"<br>
-}<br>
-<br>
+POST {gateway}/api/comment
+Content-Type:application/json
+
+{
+"contents":"comment"
+}
+
 ```
 ### 글의 코멘트 리스트<br>
 ``` sh
-GET {gateway}/api/comment/{postId}<br>
+GET {gateway}/api/comment/{postId}
 ```
 ...
 
