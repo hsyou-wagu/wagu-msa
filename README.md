@@ -1,7 +1,7 @@
 # wagu-msa
 멀티 모듈화 프로젝트, 아래 모든 모듈을 합침. 
 
-TODO:
+## TODO:
 1. 빌드/테스트/배포 자동화
 
 Post 8081 <br>
@@ -20,10 +20,11 @@ Authorization <br>
 Bearer {token} <br>
 <br>
 
+## 주요 API 내용<br>
+
 ### 로그인<br>
 GET {gateway}/auth/login<br>
 
-주요 API 내용<br>
 ### 사용자정보 가져오기<br>
 GET {gateway}/account<br>
 
