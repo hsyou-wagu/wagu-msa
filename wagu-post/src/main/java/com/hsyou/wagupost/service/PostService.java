@@ -39,6 +39,7 @@ public class PostService implements ApplicationEventPublisherAware{
 
     public Post savePost(Post post){
         try {
+
             Post rst = postRepository.save(post);
             eventPublisher.publishEvent(new PostEvent(rst.toDTO()));
 
@@ -53,9 +54,10 @@ public class PostService implements ApplicationEventPublisherAware{
         if(!optPost.isPresent()){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Post Not Found.");
         }
-        newPost.updatePostContents(newPost.getContents(), accountId);
+        Post post = optPost.get();
+        post.updatePostContents(newPost.getContents(), accountId);
 
-        return postRepository.save(newPost);
+        return postRepository.save(post);
     }
 
     public Page<PostDTO> listPost (Pageable pageable){

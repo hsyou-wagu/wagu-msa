@@ -1,8 +1,11 @@
 package com.hsyou.wagucomment.model;
 
 import lombok.*;
+import org.apache.commons.lang.NullArgumentException;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -39,6 +42,23 @@ public class Comment {
                 .userId(userId)
                 .postId(postId)
                 .build();
+    }
+
+
+    public static Comment createComment(CommentDTO commentDTO, long accountId){
+        validateComment(commentDTO);
+        return Comment.builder()
+                .postId(commentDTO.getPostId())
+                .contents(commentDTO.getContents())
+                .userId(accountId)
+                .build();
+
+    }
+
+    private static void validateComment(CommentDTO commentDTO){
+        if(commentDTO.getPostId()==0){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "post Id null");
+        }
     }
 
 }

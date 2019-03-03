@@ -46,6 +46,26 @@ public class Post {
                 .accountId(accountId)
                 .build();
     }
+    public static Post createPost(PostDTO dto, long accountId){
+        validatePost(dto);
+        validateAccount(accountId);
+        return Post.builder()
+                .contents(dto.getContents())
+                .hashtag(dto.getHashtag())
+                .accountId(accountId)
+                .build();
+    }
+
+    private static void validatePost(PostDTO postDTO){
+        if(postDTO.getContents().isEmpty()){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Contents can't be null");
+        }
+    }
+    private static void validateAccount(long accountId){
+        if(accountId == 0){
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "User를 찾을 수 없습니다.");
+        }
+    }
 
     public void setWriter(long accountId){
         this.accountId = accountId;

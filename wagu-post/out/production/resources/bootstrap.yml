@@ -3,11 +3,11 @@ server:
 spring:
   application:
     name: wagu-post
-#  cloud:
-#    config:
-#      discovery:
-#        enabled: true
-#        service-id: wagu-config
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: wagu-config
   profiles:
     active: dev
   datasource:
@@ -31,4 +31,4 @@ zookeeper:
 
 eureka:
   client:
-    enabled: false
+    enabled: true

@@ -3,6 +3,6 @@ server:
 
 spring:
   application:
-    name: wagu-discovery
+    name: wagu-eureka
 
 

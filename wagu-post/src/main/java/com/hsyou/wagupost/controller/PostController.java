@@ -24,10 +24,9 @@ public class PostController {
     }
 
     @PostMapping("")
-    public ResponseEntity<PostDTO> savePost(@RequestBody PostDTO post, @RequestParam long accountId){
-        Post entity = post.toEntity();
-        entity.setWriter(accountId);
-        return ResponseEntity.ok(postService.savePost(entity).toDTO());
+    public ResponseEntity<PostDTO> savePost(@RequestBody PostDTO postDTO, @RequestParam long accountId){
+        Post post = Post.createPost(postDTO, accountId);
+        return ResponseEntity.ok(postService.savePost(post).toDTO());
 
     }
 
@@ -46,5 +45,15 @@ public class PostController {
     @DeleteMapping("{id}")
     public ResponseEntity<PostDTO> removePost(@PathVariable long id, @RequestParam long accountId) {
         return ResponseEntity.ok(postService.removePost(id,accountId).toDTO());
+    }
+
+    @GetMapping("/api/post/a")
+    public String test(){
+        return "a";
+    }
+
+    @GetMapping("/a")
+    public String test2(){
+        return "a";
     }
 }

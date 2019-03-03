@@ -21,10 +21,10 @@ public class AccountController {
 
     //get info
 
-    @GetMapping("/account/{id}")
-    public AccountDTO getAccount(@PathVariable long id, @RequestParam String userId){
-        System.out.println(userId);
-        return accountService.getAccount(id);
+    @GetMapping("/")
+    public AccountDTO getAccount(@RequestParam long accountId){
+
+        return accountService.getAccount(accountId);
     }
 
 

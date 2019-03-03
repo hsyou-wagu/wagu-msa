@@ -47,16 +47,16 @@ public class WaguSearchApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-//        Thread kafkaConsumerThread = new Thread(() -> {
-//            log.info("Starting Kafka consumer thread.");
-//
-//            simpleKafkaConsumer.runSingleWorker();
-//        });
-//
-//        /*
-//         * Starting the first thread.
-//         */
-//        kafkaConsumerThread.start();
+        Thread kafkaConsumerThread = new Thread(() -> {
+            log.info("Starting Kafka consumer thread.");
+
+            simpleKafkaConsumer.runSingleWorker();
+        });
+
+        /*
+         * Starting the first thread.
+         */
+        kafkaConsumerThread.start();
     }
 
 }

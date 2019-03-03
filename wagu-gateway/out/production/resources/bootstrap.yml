@@ -1,5 +1,5 @@
 server:
-  port: 8766
+  port: 8765
 spring:
   application:
     name: wagu-gateway
@@ -13,8 +13,14 @@ spring:
 
 zuul:
   ribbon-isolation-strategy: thread
-
+  routes:
+    wagu-post: /api/post/**
+    wagu-user: /api/account/**
+    wagu-comment: /api/comment/**
+    wagu-search: /api/search/**
+  strip-prefix: true
+  
 management:
   endpoint:
     routes:
-      enabled: false
+      enabled: true

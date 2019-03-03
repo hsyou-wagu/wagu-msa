@@ -18,8 +18,8 @@ public class CommentService {
     private CommentRepository commentRepository;
 
 
-    public CommentDTO saveComment(CommentDTO commentDTO){
-        return commentRepository.save(commentDTO.toEntity()).toDTO();
+    public CommentDTO saveComment(Comment comment){
+        return commentRepository.save(comment).toDTO();
     }
 
     public List<CommentDTO> listAllComment(long postId){
@@ -30,10 +30,18 @@ public class CommentService {
 
     }
 
-    public CommentDTO removeComment(long id){
+    public CommentDTO removeComment(long id,long accountId){
         Optional<Comment> optComment = commentRepository.findById(id);
+
         if(optComment.isPresent()){
-            optComment.get().setRemoved(true);
+            if(optComment.get().getId() == accountId){
+
+                optComment.get().setRemoved(true);
+
+            }else{
+
+                throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Not a Writer.");
+            }
             return commentRepository.save(optComment.get()).toDTO();
         }else{
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Comment Not Found.");
