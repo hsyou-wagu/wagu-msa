@@ -19,6 +19,8 @@ localhost:8765(gateway)/auth/login <br>
 Authorization <br>
 Bearer {token} <br>
 <br>
+
+주요 API 내용<br>
 ### 사용자정보 가져오기<br>
 GET {gateway}/account<br>
 
@@ -60,3 +62,5 @@ Content-Type:application/json<br>
 <br>
 ### 글의 코멘트 리스트<br>
 GET {gateway}/api/comment/{postId}<br>
+...
+
